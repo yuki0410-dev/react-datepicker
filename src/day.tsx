@@ -62,7 +62,7 @@ interface DayProps
   startDate?: Date | null;
   endDate?: Date | null;
   renderDayContents?: (day: number, date: Date) => React.ReactNode;
-  containerRef?: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   calendarStartDay?: DateNumberType;
   locale?: Locale;
   monthShowsDuplicateDaysEnd?: boolean;
@@ -532,7 +532,7 @@ export default class Day extends Component<DayProps> {
   // the activeElement is in the container, and it is another instance of Day
   private isDayActiveElement() {
     return (
-      this.props.containerRef?.current?.contains(document.activeElement) &&
+      this.props.containerRef.current?.contains(document.activeElement) &&
       document.activeElement?.classList.contains("react-datepicker__day")
     );
   }

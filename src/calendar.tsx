@@ -991,6 +991,7 @@ export default class Calendar extends Component<CalendarProps, CalendarState> {
           <Month
             {...Calendar.defaultProps}
             {...this.props}
+            containerRef={this.containerRef}
             ariaLabelPrefix={this.props.monthAriaLabelPrefix}
             day={monthDate}
             onDayClick={this.handleDayClick}
